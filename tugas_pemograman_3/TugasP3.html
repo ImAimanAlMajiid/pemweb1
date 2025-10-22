@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TUGAS NIH</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://exampllee.vercel.app/assets/F12.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .atas {
+            background-color: rgba(0, 34, 68, 0.8);
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(2px);
+        }
+
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            text-align: center;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #eee;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #003366;
+        }
+
+        p,
+        li {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            margin: 10px auto;
+            border-radius: 8px;
+            max-width: 30%;
+        }
+
+        .gambar-gif {
+            max-width: 80%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            background-color: #dbe8ff;
+            padding: 8px;
+            color: #000;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f6ff;
+        }
+
+        .table-title th {
+            text-align: center;
+            background-color: #002244;
+            font-size: 16px;
+        }
+
+        .single-row td {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="atas">
+        <header>
+            <h1>Mahasiswa Sistem Informasi</h1>
+            <p>Jago IT • Suka Koding • Berkarakter</p>
+        </header>
+    </div>
+
+    <div class="overlay">
+
+        <h2>HTML Images</h2>
+        <p>Tag <code>&lt;img&gt;</code> digunakan untuk menampilkan gambar + dijadikan tautan. Contohnya:</p>
+        <a href="https://www.w3schools.com/html/">
+            <img src="https://exampllee.vercel.app/assets/F11.jpg" alt="W3Schools Logo">
+        </a>
+
+        <p>Contoh gambar animasi (GIF):</p>
+        <img src="https://exampllee.vercel.app/assets/G05.gif" alt="GIF animasi" class="gambar-gif">
+
+        <h2>Image Map</h2>
+        <p>Kita bisa membuat gambar yang memiliki area klik berbeda-beda:</p>
+        <img src="https://exampllee.vercel.app/assets/F16.jpg" usemap="#image-map" alt="Gambar Map">
+        <map name="image-map">
+            <area target="" alt="Instagram Mannone" title="Instagram Mannone"
+                href="https://www.instagram.com/mannone._?igsh=MWd4YjM0cnc0Mmhsdg==" coords="32,42,273,349"
+                shape="rect">
+        </map>
+
+        <h2>HTML Tables</h2>
+        <p>Tabel digunakan untuk menampilkan data baris dan kolom:</p>
+
+        <table border="1" cellpadding="8" cellspacing="0">
+            <tr class="table-title">
+                <th colspan="3">DATA MAHASISWA SISTEM INFORMASI</th>
+            </tr>
+            <tr>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Minat</th>
+            </tr>
+            <tr>
+                <td>Fathur</td>
+                <td>0110122090</td>
+                <td>Web Development</td>
+            </tr>
+            <tr>
+                <td>Riyan</td>
+                <td>0110122091</td>
+                <td>UI/UX Design</td>
+            </tr>
+            <tr class="single-row">
+                <td colspan="3">DATA MAHASISWA AKTIF 2</td>
+            </tr>
+        </table>
+
+        <h2>HTML Lists</h2>
+        <p>Unordered List (daftar tanpa urutan):</p>
+        <ul>
+            <li>Analisis Sistem</li>
+            <li>Desain Database</li>
+            <li>Pemrograman Web</li>
+        </ul>
+
+        <p>Ordered List (daftar berurutan):</p>
+        <ol>
+            <li>Belajar HTML</li>
+            <li>Belajar CSS</li>
+            <li>Belajar JavaScript</li>
+        </ol>
+
+        <footer>
+            &copy; 2025 STT Nurul Fikri — Jago IT, Berkarakter
+        </footer>
+    </div>
+</body>
+
+</html>
