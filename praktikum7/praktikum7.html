@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 7</title>
+    <link rel="stylesheet" href="style-7.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Kisah petulangan arya di dunia css</h1>
+        <h2>1. Gerbang Box Model</h2>
+        <p>Di awal petualangannya, Arya menemukan sebuah gerbang besar berbentuk kotak. Penjaganya berkata, "Untuk
+            lewat, kau harus tahu empat lapisan suci: isi, bantalan, perisai, dan ruang luar." Arya menepuk gerbang itu,
+            dan setiap lapisan menyala seakan menyambutnya masuk.</p>
+        <div class="box">
+            Gerbang Kotak Ajaib
+        </div>
+
+        <h2>2. Desa Display</h2>
+        <p>Arya tiba di desa yang penuh penduduk unik. Ada yang berjalan tegak dan memenuhi jalan seperti block, ada
+            yang luwes seperti inline, dan ada yang bisa bertransformasi seperti inline-block. Mereka menyambut Arya
+            dengan ramah dan menunjukkan cara hidup mereka.</p>
+        <p>
+            <span style="display: inline-block; background: #ddd; padding: 4px;">penduduk inline-Blok</span>
+        </p>
+
+        <h2>3. Sungai Float</h2>
+        <div class="clearfix">
+            <img class="float-img" src="https://picsum.photos/200/150" alt="">
+            <p>Ketika sampai di tepi sungai, Arya melihat sebuah perahu dengan simbol angin. Gambar di lambung perahu
+                tampak seperti mengalir mengikuti arus.
+                <br><br>
+                Penjaga sungai berkata, “Di sini, segala yang ringan akan mengapung sesuai arahnya, ada yang ke kiri,
+                ada yang ke kanan.” Arya pun melihat bagaimana air membawa gambar itu, sementara teks di sekitarnya
+                menari mengikuti aliran.
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+<canvas id="starsCanvas"></canvas>
+
+<script>
+const canvas = document.getElementById("starsCanvas");
+const ctx = canvas.getContext("2d");
+let stars = [];
+let meteors = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+// Buat bintang
+for (let i = 0; i < 200; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.2,
+    alpha: Math.random(),
+    speed: Math.random() * 0.3 + 0.1,
+  });
+}
+
+// Gambar bintang
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#fff";
+  for (let s of stars) {
+    ctx.globalAlpha = s.alpha;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fill();
+    s.y += s.speed;
+    if (s.y > canvas.height) s.y = 0;
+  }
+  ctx.globalAlpha = 1;
+}
+
+// Meteor generator
+function spawnMeteor() {
+  meteors.push({
+    x: Math.random() * canvas.width,
+    y: -20,
+    dx: Math.random() * 6 + 4,
+    dy: Math.random() * 3 + 2,
+    life: 100 + Math.random() * 60
+  });
+}
+
+setInterval(() => {
+  if (Math.random() < 0.3) spawnMeteor();
+}, 1500);
+
+// Gambar meteor
+function drawMeteors() {
+  for (let i = meteors.length - 1; i >= 0; i--) {
+    const m = meteors[i];
+    m.x += m.dx;
+    m.y += m.dy;
+    m.life -= 2;
+    const grad = ctx.createLinearGradient(m.x, m.y, m.x - m.dx * 6, m.y - m.dy * 6);
+    grad.addColorStop(0, "rgba(255,255,255,0.9)");
+    grad.addColorStop(1, "rgba(255,200,100,0)");
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(m.x, m.y);
+    ctx.lineTo(m.x - m.dx * 8, m.y - m.dy * 8);
+    ctx.stroke();
+
+    if (m.life <= 0 || m.x > canvas.width + 100 || m.y > canvas.height + 100) {
+      meteors.splice(i, 1);
+    }
+  }
+}
+
+// Loop animasi
+function animate() {
+  drawStars();
+  drawMeteors();
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+
+</html>
